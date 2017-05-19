@@ -1,0 +1,2 @@
+Input number is 255
+Flipped number is 255

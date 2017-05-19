@@ -1,0 +1,2 @@
+Input number is 6
+Flipped number is 96
