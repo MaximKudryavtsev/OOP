@@ -14,21 +14,21 @@ namespace
         { Gear::FIFTH, { 50, 150 } }
     };
 
-    bool IsInRange(const int number, const pair<int, int> &range)
+    bool IsInRange(int number, const pair<int, int> &range)
     {
         return (number >= range.first) && (number <= range.second);
     }
 
-    bool IsSpeedInRangeForGear(Gear gear, const int speed)
+    bool IsSpeedInRangeForGear(Gear gear, int speed)
     {
         return (IsInRange(speed, ranges[gear]));
     }
 
-    Gear ConvertIntToGear(const int intGear)
+    Gear ConvertIntToGear(int intGear)
     {
         Gear gear;
-
-        switch (intGear)
+		gear = static_cast<Gear>(intGear);
+        /*switch (intGear)
         {
         case -1:
             gear = Gear::REVERSE;
@@ -54,7 +54,7 @@ namespace
         default:
             gear = Gear::NEUTRAL;
             break;
-        }
+        }*/
 
         return gear;
     }

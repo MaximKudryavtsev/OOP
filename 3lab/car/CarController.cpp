@@ -6,36 +6,36 @@ using namespace std;
 
 namespace
 {
-    string DirectionToString(const Direction direction)
+string DirectionToString(const Direction direction)
+{
+    string directionStr;
+
+    switch (direction)
     {
-        string directionStr;
-
-        switch (direction)
-        {
-        case Direction::FORWARD:
-        {
-            directionStr = "forward";
-            break;
-        }
-        case Direction::BACKWARD:
-        {
-            directionStr = "backward";
-            break;
-        }
-        case Direction::NONE:
-        {
-            directionStr = "none";
-            break;
-        }
-        default:
-        {
-            directionStr = "<unknown direction>";
-            break;
-        }
-        }
-
-        return directionStr;
+    case Direction::FORWARD:
+    {
+        directionStr = "forward";
+        break;
     }
+    case Direction::BACKWARD:
+    {
+        directionStr = "backward";
+        break;
+    }
+    case Direction::NONE:
+    {
+        directionStr = "none";
+        break;
+    }
+    default:
+    {
+        directionStr = "<unknown direction>";
+        break;
+    }
+    }
+
+    return directionStr;
+}
 }
 
 CCarController::CCarController(CCar &car, istream &input, ostream &output):
