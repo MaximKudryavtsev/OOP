@@ -44,13 +44,13 @@ BOOST_FIXTURE_TEST_SUITE(Car_Controller, CarControllerFixture)
         VerifyCommandHandling("EngineOn", "Car engine was turned on\n");
     }
 
-    BOOST_AUTO_TEST_CASE(can_turn_off_car_engine_which_is_on)
+    BOOST_AUTO_TEST_CASE(turn_off_car_engine_which_is_on)
     {
         car.TurnOnEngine();
         VerifyCommandHandling("EngineOff", "Car engine was turned off\n");
     }
 
-    BOOST_AUTO_TEST_CASE(can_print_car_info)
+    BOOST_AUTO_TEST_CASE(print_car_info)
     {
         // проверяем у машины с незаведённым двигателем
         car.TurnOffEngine();
@@ -65,7 +65,7 @@ BOOST_FIXTURE_TEST_SUITE(Car_Controller, CarControllerFixture)
         );
     }
 
-    BOOST_AUTO_TEST_CASE(can_print_alert_messages)
+    BOOST_AUTO_TEST_CASE(print_alert_messages)
     {
         car.TurnOffEngine();
         VerifyCommandHandling(
@@ -73,7 +73,7 @@ BOOST_FIXTURE_TEST_SUITE(Car_Controller, CarControllerFixture)
         );
     }
 
-    BOOST_AUTO_TEST_CASE(can_show_info_that_operation_on_car_engine_is_already_done)
+    BOOST_AUTO_TEST_CASE(show_info_that_operation_on_car_engine_is_already_done)
     {
         car.TurnOnEngine();
         VerifyCommandHandling(
