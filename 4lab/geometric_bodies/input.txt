@@ -1,0 +1,9 @@
+CreateSphere 1 1
+CreateCompound
+CreateCylinder 2 3 4
+CreateParallelepiped 1 1 1 2
+CreateCompound
+CreateCone 3 3 5
+...
+...
+CreateCone 1 3 4

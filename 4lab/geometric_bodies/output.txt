@@ -1,0 +1,118 @@
+> Sphere created!
+> Creating compound body ("..." for quit creating)
+> Cylinder created!
+> Parallelepiped created!
+> Creating compound body ("..." for quit creating)
+> Cone created!
+> Qutting create of compound body
+> Qutting create of compound body
+> Cone created!
+> Sphere:
+	density = 1
+	volume = 4.188790205
+	mass = 4.188790205
+	radius = 1
+
+Compound:
+	density = 2.278162674
+	volume = 162.2212253
+	mass = 369.5663405
+*** COMPOUND BODY ELEMENTS: ***
+Cylinder:
+	density = 2
+	volume = 113.0973355
+	mass = 226.1946711
+	base radius = 3
+	height = 4
+Parallelepiped:
+	density = 1
+	volume = 2
+	mass = 2
+	width = 1
+	height = 1
+	depth = 2
+Compound:
+	density = 3
+	volume = 47.1238898
+	mass = 141.3716694
+*** COMPOUND BODY ELEMENTS: ***
+Cone:
+	density = 3
+	volume = 47.1238898
+	mass = 141.3716694
+	base radius = 3
+	height = 5
+*** END OF COMPOUND ***
+*** END OF COMPOUND ***
+
+Cone:
+	density = 1
+	volume = 37.69911184
+	mass = 37.69911184
+	base radius = 3
+	height = 4
+
+Body with max mass is Compound:
+	density = 2.278162674
+	volume = 162.2212253
+	mass = 369.5663405
+*** COMPOUND BODY ELEMENTS: ***
+Cylinder:
+	density = 2
+	volume = 113.0973355
+	mass = 226.1946711
+	base radius = 3
+	height = 4
+Parallelepiped:
+	density = 1
+	volume = 2
+	mass = 2
+	width = 1
+	height = 1
+	depth = 2
+Compound:
+	density = 3
+	volume = 47.1238898
+	mass = 141.3716694
+*** COMPOUND BODY ELEMENTS: ***
+Cone:
+	density = 3
+	volume = 47.1238898
+	mass = 141.3716694
+	base radius = 3
+	height = 5
+*** END OF COMPOUND ***
+*** END OF COMPOUND ***
+
+Body with min weight in water is Compound:
+	density = 2.278162674
+	volume = 162.2212253
+	mass = 369.5663405
+*** COMPOUND BODY ELEMENTS: ***
+Cylinder:
+	density = 2
+	volume = 113.0973355
+	mass = 226.1946711
+	base radius = 3
+	height = 4
+Parallelepiped:
+	density = 1
+	volume = 2
+	mass = 2
+	width = 1
+	height = 1
+	depth = 2
+Compound:
+	density = 3
+	volume = 47.1238898
+	mass = 141.3716694
+*** COMPOUND BODY ELEMENTS: ***
+Cone:
+	density = 3
+	volume = 47.1238898
+	mass = 141.3716694
+	base radius = 3
+	height = 5
+*** END OF COMPOUND ***
+*** END OF COMPOUND ***
+
