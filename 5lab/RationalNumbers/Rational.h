@@ -1,9 +1,5 @@
 ﻿#pragma once
-#include <ostream>
-#include <istream>
-/*
-Класс, моделирующий рациональное число
-*/
+
 class CRational final
 {
 public:
@@ -11,40 +7,40 @@ public:
 
 	int GetNumerator() const;
 	int GetDenominator() const;
+
 	double ToDouble() const;
+
 	std::pair<int, CRational> ToCompoundFraction() const;
 
-	const CRational operator-() const;
-	const CRational operator+() const;
+	CRational const operator +() const;
+	CRational const operator -() const;
 
-	CRational& operator+=(const CRational &rightValue);
-	CRational& operator-=(const CRational &rightValue);
-	CRational& operator*=(const CRational &rightValue);
-	CRational& operator/=(const CRational &rightValue);
+	CRational& operator +=(const CRational &rightValue);
+	CRational& operator -=(const CRational &rightValue);
+	CRational& operator *=(const CRational &rightValue);
+	CRational& operator /=(const CRational &rightValue);
 
 private:
 	int m_numerator;
 	int m_denominator;
 
-	// Нормализует рациональное число
 	void Normalize();
 };
 
-CRational const operator+(const CRational &leftValue, const CRational &rightValue);
-CRational const operator-(const CRational &leftValue, const CRational &rightValue);
-CRational const operator*(const CRational &leftValue, const CRational &rightValue);
-CRational const operator/(const CRational &leftValue, const CRational &rightValue);
+CRational const operator +(const CRational &leftValue, const CRational &rightValue);
+CRational const operator -(const CRational &leftValue, const CRational &rightValue);
+CRational const operator *(const CRational &leftValue, const CRational &rightValue);
+CRational const operator /(const CRational &leftValue, const CRational &rightValue);
 
-bool const operator==(const CRational &leftValue, const CRational &rightValue);
-bool const operator!=(const CRational &leftValue, const CRational &rightValue);
-bool const operator<(const CRational &leftValue, const CRational &rightValue);
-bool const operator<=(const CRational &leftValue, const CRational &rightValue);
-bool const operator>(const CRational &leftValue, const CRational &rightValue);
-bool const operator>=(const CRational &leftValue, const CRational &rightValue);
+bool operator ==(const CRational &leftValue, const CRational &rightValue);
+bool operator !=(const CRational &leftValue, const CRational &rightValue);
+bool operator >(const CRational &leftValue, const CRational &rightValue);
+bool operator >=(const CRational &leftValue, const CRational &rightValue);
+bool operator <(const CRational &leftValue, const CRational &rightValue);
+bool operator <=(const CRational &leftValue, const CRational &rightValue);
 
-std::ostream &operator<<(std::ostream &output, const CRational &rational);
-std::istream &operator>>(std::istream &input, CRational &rational);
+std::ostream& operator <<(std::ostream &strm, const CRational &number);
+std::istream& operator >> (std::istream &strm, CRational &number);
 
-// Вычисляет наибольший общий делитель (greatest common denominator) чисел a и b
+
 unsigned GCD(unsigned a, unsigned b);
-
