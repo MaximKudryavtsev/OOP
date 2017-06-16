@@ -1,7 +1,7 @@
 ﻿#include "stdafx.h"
 #include "../RationalNumbers/Rational.h"
 
-BOOST_AUTO_TEST_CASE(GCD_function_tests)
+BOOST_AUTO_TEST_CASE(GCD_tests)
 {
 	BOOST_CHECK_EQUAL(GCD(4, 5), 1u);
 	BOOST_CHECK_EQUAL(GCD(5, 4), 1u);
@@ -25,14 +25,14 @@ BOOST_AUTO_TEST_CASE(equals_to_zero_by_default)
 	VerifyRational(CRational(), 0, 1);
 }
 
-BOOST_AUTO_TEST_CASE(can_be_constructed_by_one_integer_value)
+BOOST_AUTO_TEST_CASE(should_be_constructed_by_one_integer_value)
 {
 	VerifyRational(CRational(10), 10, 1);
 	VerifyRational(CRational(-10), -10, 1);
 	VerifyRational(CRational(0), 0, 1);
 }
 
-BOOST_AUTO_TEST_CASE(can_be_constructed_with_numerator_and_denominator)
+BOOST_AUTO_TEST_CASE(should_be_constructed_with_numerator_and_denominator)
 {
 	VerifyRational(CRational(5, 2), 5, 2);
 	VerifyRational(CRational(-5, 2), -5, 2);
@@ -40,7 +40,7 @@ BOOST_AUTO_TEST_CASE(can_be_constructed_with_numerator_and_denominator)
 	VerifyRational(CRational(-5, -2), 5, 2);
 }
 
-BOOST_AUTO_TEST_CASE(is_normalized_after_construction)
+BOOST_AUTO_TEST_CASE(should_be_normalized_after_construction)
 {
 	VerifyRational(CRational(6, 8), 3, 4);
 	VerifyRational(CRational(10, 5), 2, 1);
@@ -50,12 +50,12 @@ BOOST_AUTO_TEST_CASE(is_normalized_after_construction)
 	VerifyRational(CRational(-10, 20), -1, 2);
 }
 
-BOOST_AUTO_TEST_CASE(cannot_have_denominator_that_equals_to_zero)
+BOOST_AUTO_TEST_CASE(shouldnot_have_denominator_that_equals_to_zero)
 {
 	BOOST_REQUIRE_THROW(CRational(1, 0), std::invalid_argument);
 }
 
-BOOST_AUTO_TEST_CASE(can_be_printed)
+BOOST_AUTO_TEST_CASE(should_be_printed)
 {
 	CRational number(3, 2);
 	std::stringstream strm;
@@ -63,7 +63,7 @@ BOOST_AUTO_TEST_CASE(can_be_printed)
 	BOOST_CHECK_EQUAL(strm.str(), "3/2 -1/3");
 }
 
-BOOST_AUTO_TEST_CASE(can_be_read)
+BOOST_AUTO_TEST_CASE(should_be_read)
 {
 	CRational number;
 	std::stringstream strm("1/2");
@@ -71,7 +71,7 @@ BOOST_AUTO_TEST_CASE(can_be_read)
 	VerifyRational(number, 1, 2);
 }
 
-BOOST_AUTO_TEST_CASE(can_be_converted_into_double)
+BOOST_AUTO_TEST_CASE(should_be_converted_into_double)
 {
 	BOOST_CHECK_CLOSE_FRACTION(CRational().ToDouble(), 0.0, DBL_EPSILON);
 	BOOST_CHECK_CLOSE_FRACTION(CRational(1).ToDouble(), 1.0, DBL_EPSILON);
@@ -82,7 +82,7 @@ BOOST_AUTO_TEST_CASE(can_be_converted_into_double)
 	BOOST_CHECK_CLOSE_FRACTION(CRational(-8, -10).ToDouble(), 0.8, DBL_EPSILON);
 }
 
-BOOST_AUTO_TEST_CASE(can_be_converted_into_compound_fraction)
+BOOST_AUTO_TEST_CASE(should_be_converted_into_compound_fraction)
 {
 	BOOST_CHECK_EQUAL(CRational(4, 3).ToCompoundFraction().first, 1);
 	BOOST_CHECK_EQUAL(CRational(4, 3).ToCompoundFraction().second, CRational(1, 3));
@@ -92,6 +92,9 @@ BOOST_AUTO_TEST_CASE(can_be_converted_into_compound_fraction)
 
 	BOOST_CHECK_EQUAL(CRational(-5, 4).ToCompoundFraction().first, -1);
 	BOOST_CHECK_EQUAL(CRational(-5, 4).ToCompoundFraction().second, CRational(-1, 4));
+
+	BOOST_CHECK_EQUAL(CRational(25, 4).ToCompoundFraction().first, 6);
+	BOOST_CHECK_EQUAL(CRational(25, 4).ToCompoundFraction().second, CRational(1, 4));
 }
 
 BOOST_AUTO_TEST_CASE(unary_plus_returns_same_number)
@@ -112,7 +115,7 @@ BOOST_AUTO_TEST_CASE(unary_minus_returns_same_number_with_opposite_sign)
 	VerifyRational(-CRational(-5, -8), -5, 8);
 }
 
-BOOST_AUTO_TEST_SUITE(binary_plus_can_return_sum_of)
+BOOST_AUTO_TEST_SUITE(binary_plus_should_return_sum_of)
 
 BOOST_AUTO_TEST_CASE(two_rational_numbers)
 {
@@ -170,7 +173,7 @@ BOOST_AUTO_TEST_CASE(integer_and_rational_number)
 
 BOOST_AUTO_TEST_SUITE_END()
 
-BOOST_AUTO_TEST_SUITE(binary_minus_can_return_difference_between)
+BOOST_AUTO_TEST_SUITE(binary_minus_should_return_difference_between)
 
 BOOST_AUTO_TEST_CASE(two_rational_numbers)
 {
@@ -228,7 +231,7 @@ BOOST_AUTO_TEST_CASE(integer_and_rational_number)
 
 BOOST_AUTO_TEST_SUITE_END()
 
-BOOST_AUTO_TEST_SUITE(can_multiply)
+BOOST_AUTO_TEST_SUITE(should_multiply)
 
 BOOST_AUTO_TEST_CASE(two_rational_numbers)
 {
@@ -286,7 +289,7 @@ BOOST_AUTO_TEST_CASE(integer_and_rational_number)
 
 BOOST_AUTO_TEST_SUITE_END()
 
-BOOST_AUTO_TEST_SUITE(can_divide)
+BOOST_AUTO_TEST_SUITE(should_divide)
 
 BOOST_AUTO_TEST_CASE(two_rational_numbers)
 {
@@ -350,7 +353,7 @@ BOOST_AUTO_TEST_CASE(and_handle_division_on_zero)
 
 BOOST_AUTO_TEST_SUITE_END()
 
-BOOST_AUTO_TEST_SUITE(can_increase_by_addition)
+BOOST_AUTO_TEST_SUITE(should_increase_by_addition)
 
 BOOST_AUTO_TEST_CASE(with_another_rational_number)
 {
@@ -384,7 +387,7 @@ BOOST_AUTO_TEST_CASE(with_some_integer_value)
 
 BOOST_AUTO_TEST_SUITE_END()
 
-BOOST_AUTO_TEST_SUITE(can_increase_by_multiplication)
+BOOST_AUTO_TEST_SUITE(should_increase_by_multiplication)
 
 BOOST_AUTO_TEST_CASE(with_another_rational_number)
 {
@@ -418,7 +421,7 @@ BOOST_AUTO_TEST_CASE(with_some_integer_value)
 
 BOOST_AUTO_TEST_SUITE_END()
 
-BOOST_AUTO_TEST_SUITE(can_decrease_by_subtraction)
+BOOST_AUTO_TEST_SUITE(should_decrease_by_subtraction)
 
 BOOST_AUTO_TEST_CASE(with_another_rational_number)
 {
@@ -452,7 +455,7 @@ BOOST_AUTO_TEST_CASE(with_some_integer_value)
 
 BOOST_AUTO_TEST_SUITE_END()
 
-BOOST_AUTO_TEST_SUITE(can_decrease_by_division)
+BOOST_AUTO_TEST_SUITE(should_decrease_by_division)
 
 BOOST_AUTO_TEST_CASE(with_another_rational_number)
 {
@@ -493,7 +496,7 @@ BOOST_AUTO_TEST_CASE(and_handle_division_on_zero)
 
 BOOST_AUTO_TEST_SUITE_END()
 
-BOOST_AUTO_TEST_SUITE(can_be_compared_on_equality_of)
+BOOST_AUTO_TEST_SUITE(should_be_compared_on_equality_of)
 
 BOOST_AUTO_TEST_CASE(two_rational_numbers)
 {
@@ -530,7 +533,7 @@ BOOST_AUTO_TEST_CASE(integer_and_rational)
 
 BOOST_AUTO_TEST_SUITE_END()
 
-BOOST_AUTO_TEST_SUITE(can_be_compared_on_inequality_of)
+BOOST_AUTO_TEST_SUITE(should_be_compared_on_inequality_of)
 
 BOOST_AUTO_TEST_CASE(two_rational_numbers)
 {
@@ -567,7 +570,7 @@ BOOST_AUTO_TEST_CASE(integer_and_rational)
 
 BOOST_AUTO_TEST_SUITE_END()
 
-BOOST_AUTO_TEST_SUITE(can_be_greater_than)
+BOOST_AUTO_TEST_SUITE(should_be_greater_than)
 
 BOOST_AUTO_TEST_CASE(another_rational_number)
 {
@@ -596,7 +599,7 @@ BOOST_AUTO_TEST_CASE(some_integer_value)
 
 BOOST_AUTO_TEST_SUITE_END()
 
-BOOST_AUTO_TEST_SUITE(can_be_less_or_equal_to)
+BOOST_AUTO_TEST_SUITE(should_be_less_or_equal_to)
 
 BOOST_AUTO_TEST_CASE(another_rational_number)
 {
@@ -625,7 +628,7 @@ BOOST_AUTO_TEST_CASE(some_integer_value)
 
 BOOST_AUTO_TEST_SUITE_END()
 
-BOOST_AUTO_TEST_SUITE(can_be_less_than)
+BOOST_AUTO_TEST_SUITE(should_be_less_than)
 
 BOOST_AUTO_TEST_CASE(another_rational_number)
 {
@@ -654,7 +657,7 @@ BOOST_AUTO_TEST_CASE(some_integer_value)
 
 BOOST_AUTO_TEST_SUITE_END()
 
-BOOST_AUTO_TEST_SUITE(can_be_greater_or_equal_to)
+BOOST_AUTO_TEST_SUITE(should_be_greater_or_equal_to)
 
 BOOST_AUTO_TEST_CASE(another_rational_number)
 {
