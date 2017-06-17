@@ -3,13 +3,13 @@
 
 BOOST_AUTO_TEST_CASE(GCD_tests)
 {
-	BOOST_CHECK_EQUAL(GCD(4, 5), 1u);
-	BOOST_CHECK_EQUAL(GCD(5, 4), 1u);
-	BOOST_CHECK_EQUAL(GCD(0, 0), 1u);
-	BOOST_CHECK_EQUAL(GCD(0, 3), 3u);
-	BOOST_CHECK_EQUAL(GCD(3, 0), 3u);
-	BOOST_CHECK_EQUAL(GCD(12, 8), 4u);
-	BOOST_CHECK_EQUAL(GCD(8, 12), 4u);
+	BOOST_CHECK_EQUAL(GCD(4, 5), 1);
+	BOOST_CHECK_EQUAL(GCD(5, 4), 1);
+	BOOST_CHECK_EQUAL(GCD(0, 0), 1);
+	BOOST_CHECK_EQUAL(GCD(0, 3), 3);
+	BOOST_CHECK_EQUAL(GCD(3, 0), 3);
+	BOOST_CHECK_EQUAL(GCD(12, 8), 4);
+	BOOST_CHECK_EQUAL(GCD(8, 12), 4);
 }
 
 void VerifyRational(const CRational &rationalNumber, const int expectedNumerator, const int expectedDenominator)
