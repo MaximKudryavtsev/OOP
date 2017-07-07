@@ -16,7 +16,8 @@ CAppController::CAppController(std::vector<std::shared_ptr<CBody>> &bodies, std:
         { "Parallelepiped", std::bind(&CAppController::CreateParallelepiped, this, std::placeholders::_1) },
         { "Cone", std::bind(&CAppController::CreateCone, this, std::placeholders::_1) },
         { "Cylinder", std::bind(&CAppController::CreateCylinder, this, std::placeholders::_1) },
-        { "Compound", std::bind(&CAppController::CreateCompound, this, std::placeholders::_1) }
+        { "Compound", std::bind(&CAppController::CreateCompound, this, std::placeholders::_1) },
+		{ "Info", std::bind(&CAppController::PrintInfoAboutAllBodies, this, std::placeholders::_1) }
     })
 {
 }
@@ -30,7 +31,8 @@ bool CAppController::Info()
 		<< "4) Cylinder <density> <radius> <height>\n"
 		<< "5) Compound - Begining of the input elements of compound body\n"
 		<< "Any elements\n"
-		<< "... - to finish entering elements of compound body or exit\n";
+		<< "... - to finish entering elements of compound body or exit\n"
+		<< "'info' - to know current infot";
 	return true;
 }
 
@@ -77,16 +79,16 @@ bool CAppController::CreateSphere(std::istream &args)
 {
     bool created = false;
 
-    double parametr;
-    std::vector<double> parametrs;
-    while (args >> parametr)
+    double parameter;
+    std::vector<double> parameters;
+    while (args >> parameter)
     {
-        parametrs.push_back(parametr);
+        parameters.push_back(parameter);
     }
 
-    if (parametrs.size() == 2)
+    if (parameters.size() == 2)
     {
-        std::shared_ptr<CBody> ptr = std::make_shared<CSphere>(parametrs.at(0), parametrs.at(1));
+        std::shared_ptr<CBody> ptr = std::make_shared<CSphere>(parameters.at(0), parameters.at(1));
         m_bodies.push_back(ptr);
         created = true;
         m_output << "Sphere created!\n";
@@ -104,16 +106,16 @@ bool CAppController::CreateParallelepiped(std::istream &args)
 {
     bool created = false;
 
-    double parametr;
-    std::vector<double> parametrs;
-    while (args >> parametr)
+    double parameter;
+    std::vector<double> parameters;
+    while (args >> parameter)
     {
-        parametrs.push_back(parametr);
+        parameters.push_back(parameter);
     }
 
-    if (parametrs.size() == 4)
+    if (parameters.size() == 4)
     {
-        std::shared_ptr<CBody> ptr = std::make_shared<CParallelepiped>(parametrs.at(0), parametrs.at(1), parametrs.at(2), parametrs.at(3));
+        std::shared_ptr<CBody> ptr = std::make_shared<CParallelepiped>(parameters.at(0), parameters.at(1), parameters.at(2), parameters.at(3));
         m_bodies.push_back(ptr);
         created = true;
         m_output << "Parallelepiped created!\n";
@@ -131,16 +133,16 @@ bool CAppController::CreateCone(std::istream &args)
 {
     bool created = false;
 
-    double parametr;
-    std::vector<double> parametrs;
-    while (args >> parametr)
+    double parameter;
+    std::vector<double> parameters;
+    while (args >> parameter)
     {
-        parametrs.push_back(parametr);
+        parameters.push_back(parameter);
     }
 
-    if (parametrs.size() == 3)
+    if (parameters.size() == 3)
     {
-        std::shared_ptr<CBody> ptr = std::make_shared<CCone>(parametrs.at(0), parametrs.at(1), parametrs.at(2));
+        std::shared_ptr<CBody> ptr = std::make_shared<CCone>(parameters.at(0), parameters.at(1), parameters.at(2));
         m_bodies.push_back(ptr);
         created = true;
         m_output << "Cone created!\n";
@@ -158,16 +160,16 @@ bool CAppController::CreateCylinder(std::istream &args)
 {
     bool created = false;
 
-    double parametr;
-    std::vector<double> parametrs;
-    while (args >> parametr)
+    double parameter;
+    std::vector<double> parameters;
+    while (args >> parameter)
     {
-        parametrs.push_back(parametr);
+        parameters.push_back(parameter);
     }
 
-    if (parametrs.size() == 3)
+    if (parameters.size() == 3)
     {
-        std::shared_ptr<CBody> ptr = std::make_shared<CCylinder>(parametrs.at(0), parametrs.at(1), parametrs.at(2));
+        std::shared_ptr<CBody> ptr = std::make_shared<CCylinder>(parameters.at(0), parameters.at(1), parameters.at(2));
         m_bodies.push_back(ptr);
         created = true;
         m_output << "Cylinder created!\n";

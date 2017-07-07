@@ -15,7 +15,3 @@ std::vector<double> GetCoefficientsOfEquation(std::istream &strm)
     }
 }
 
-void PrintVector(const std::vector<double> &vect, std::ostream &strm)
-{
-    std::copy(vect.begin(), vect.end(), std::ostream_iterator<double>(strm << std::fixed << std::setprecision(3), " "));
-}

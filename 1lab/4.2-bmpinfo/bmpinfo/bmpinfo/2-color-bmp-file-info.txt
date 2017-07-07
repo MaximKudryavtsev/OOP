@@ -1,0 +1,5 @@
+Size in bytes: 3110
+Image width: 171
+Image height: 127
+Bits per pixel: 1
+This file uses 2 colors (white, black)

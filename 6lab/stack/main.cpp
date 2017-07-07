@@ -7,7 +7,6 @@ int main()
     {
         CStringStack stack;
 
-        //stack.Push("str");
         std::cout << stack.GetLastElement() << std::endl;
     }
     catch (const std::exception &error)

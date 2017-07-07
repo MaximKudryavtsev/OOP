@@ -1,0 +1,5 @@
+Size in bytes: 21046
+Image width: 154
+Image height: 128
+Bits per pixel: 8
+This file uses 256 colors
