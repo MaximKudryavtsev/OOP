@@ -16,8 +16,8 @@ CAppController::CAppController(std::vector<std::shared_ptr<CBody>> &bodies, std:
         { "Parallelepiped", std::bind(&CAppController::CreateParallelepiped, this, std::placeholders::_1) },
         { "Cone", std::bind(&CAppController::CreateCone, this, std::placeholders::_1) },
         { "Cylinder", std::bind(&CAppController::CreateCylinder, this, std::placeholders::_1) },
-        { "Compound", std::bind(&CAppController::CreateCompound, this, std::placeholders::_1) },
-		{ "Info", std::bind(&CAppController::PrintInfoAboutAllBodies, this, std::placeholders::_1) }
+        { "Compound", std::bind(&CAppController::CreateCompound, this, std::placeholders::_1) }
+		//{ "Info", std::bind(&CAppController::PrintCurrentInfo, this, std::placeholders::_1) }
     })
 {
 }
@@ -31,8 +31,8 @@ bool CAppController::Info()
 		<< "4) Cylinder <density> <radius> <height>\n"
 		<< "5) Compound - Begining of the input elements of compound body\n"
 		<< "Any elements\n"
-		<< "... - to finish entering elements of compound body or exit\n"
-		<< "'info' - to know current infot";
+		<< "Exit - to finish entering elements of compound body or exit\n"
+		<< "'Info' - to know current info\n";
 	return true;
 }
 
@@ -44,10 +44,15 @@ bool CAppController::HandleCommand()
     {
         return true;
     }
-    else if (commandLine == "...")
+    else if (commandLine == "Exit")
     {
         return false;
     }
+	else if (commandLine == "Info")
+	{
+		PrintInfoAboutAllBodies(m_bodies, m_output);
+		return true;
+	}
 
     std::istringstream strm(commandLine);
 
@@ -189,7 +194,7 @@ bool CAppController::CreateCompound(std::istream &args)
     CAppController compoundBodiesController(compoundBodyElements, m_input, m_output);
     std::shared_ptr<CCompound> compoundBody = std::make_shared<CCompound>();
 
-    m_output << "Creating compound body (\"...\" for quit creating)\n";
+    m_output << "Creating compound body (\"Exit\" for quit creating)\n";
 
     while ((!m_input.eof()) || (!m_input.fail()))
     {

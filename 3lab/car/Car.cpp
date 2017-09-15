@@ -28,34 +28,6 @@ namespace
     {
         Gear gear;
 		gear = static_cast<Gear>(intGear);
-        /*switch (intGear)
-        {
-        case -1:
-            gear = Gear::REVERSE;
-            break;
-        case 0:
-            gear = Gear::NEUTRAL;
-            break;
-        case 1:
-            gear = Gear::FIRST;
-            break;
-        case 2:
-            gear = Gear::SECOND;
-            break;
-        case 3:
-            gear = Gear::THIRD;
-            break;
-        case 4:
-            gear = Gear::FOURTH;
-            break;
-        case 5:
-            gear = Gear::FIFTH;
-            break;
-        default:
-            gear = Gear::NEUTRAL;
-            break;
-        }*/
-
         return gear;
     }
 }

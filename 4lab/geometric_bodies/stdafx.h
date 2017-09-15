@@ -22,5 +22,6 @@
 #include <map>
 #include <functional>
 #include <algorithm>
+#include <iterator>
 
 // TODO: reference additional headers your program requires here
