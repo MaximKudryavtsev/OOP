@@ -55,21 +55,21 @@ void WriteInfoAboutBmpFile(BmpFileHeader &fileHeader, BmpInfoHeader &infoHeader)
 	{
 		switch (infoHeader.bitsPerPixel)
 		{
-		case 1:
-		{
-			cout << "This file uses 2 colors (white, black)\n";
-			break;
-		}
-		case 4:
-		{
-			cout << "This file uses 16 colors\n";
-			break;
-		}
-		case 8:
-		{
-			cout << "This file uses 256 colors\n";
-			break;
-		}
+			case 1:
+			{
+				cout << "This file uses 2 colors (white, black)\n";
+				break;
+			}
+			case 4:
+			{
+				cout << "This file uses 16 colors\n";
+				break;
+			}
+			case 8:
+			{
+				cout << "This file uses 256 colors\n";
+				break;
+			}
 		}
 	}
 
@@ -77,26 +77,26 @@ void WriteInfoAboutBmpFile(BmpFileHeader &fileHeader, BmpInfoHeader &infoHeader)
 	{
 		switch (infoHeader.compressionType)
 		{
-		case 1:
-		{
-			cout << "This BMP file uses RLE 8-bit / pixel compression method\n";
-			break;
-		}
-		case 2:
-		{
-			cout << "This BMP file uses RLE 4-bit / pixel compression method\n";
-			break;
-		}
-		case 4:
-		{
-			cout << "This BMP file uses JPEG compression method\n";
-			break;
-		}
-		case 5:
-		{
-			cout << "This BMP file uses PNG compression method\n";
-			break;
-		}
+			case 1:
+			{
+				cout << "This BMP file uses RLE 8-bit / pixel compression method\n";
+				break;
+			}
+			case 2:
+			{
+				cout << "This BMP file uses RLE 4-bit / pixel compression method\n";
+				break;
+			}
+			case 4:
+			{
+				cout << "This BMP file uses JPEG compression method\n";
+				break;
+			}
+			case 5:
+			{
+				cout << "This BMP file uses PNG compression method\n";
+				break;
+			}
 		}
 	}
 }
