@@ -44,7 +44,7 @@ void ReadBmpInfoHeader(ifstream &file, BmpInfoHeader &fileHeader)
 	file.read(reinterpret_cast<char*>(&fileHeader.compressionType), sizeof(fileHeader.compressionType));
 }
 
-void WriteInfoAboutBmpFile(BmpFileHeader &fileHeader, BmpInfoHeader &infoHeader)
+void WriteInfoAboutBmpFile(const BmpFileHeader &fileHeader, const BmpInfoHeader &infoHeader)
 {
 	cout << "Size in bytes: " << fileHeader.fileSize << endl;
 	cout << "Image width: " << infoHeader.imageWidth << endl;
@@ -55,21 +55,27 @@ void WriteInfoAboutBmpFile(BmpFileHeader &fileHeader, BmpInfoHeader &infoHeader)
 	{
 		switch (infoHeader.bitsPerPixel)
 		{
-		case 1:
-		{
-			cout << "This file uses 2 colors (white, black)\n";
-			break;
-		}
-		case 4:
-		{
-			cout << "This file uses 16 colors\n";
-			break;
-		}
-		case 8:
-		{
-			cout << "This file uses 256 colors\n";
-			break;
-		}
+			case 1:
+			{
+				cout << "This file uses 2 colors (white, black)\n";
+				break;
+			}
+			case 4:
+			{
+				cout << "This file uses 16 colors\n";
+				break;
+			}
+			case 8:
+			{
+				cout << "This file uses 256 colors\n";
+				break;
+			}
+			default:
+			{
+				cout << "This file damaged or it's not a BMP image\n";
+				break;
+			}
+
 		}
 	}
 
@@ -77,26 +83,31 @@ void WriteInfoAboutBmpFile(BmpFileHeader &fileHeader, BmpInfoHeader &infoHeader)
 	{
 		switch (infoHeader.compressionType)
 		{
-		case 1:
-		{
-			cout << "This BMP file uses RLE 8-bit / pixel compression method\n";
-			break;
-		}
-		case 2:
-		{
-			cout << "This BMP file uses RLE 4-bit / pixel compression method\n";
-			break;
-		}
-		case 4:
-		{
-			cout << "This BMP file uses JPEG compression method\n";
-			break;
-		}
-		case 5:
-		{
-			cout << "This BMP file uses PNG compression method\n";
-			break;
-		}
+			case 1:
+			{
+				cout << "This BMP file uses RLE 8-bit / pixel compression method\n";
+				break;
+			}
+			case 2:
+			{
+				cout << "This BMP file uses RLE 4-bit / pixel compression method\n";
+				break;
+			}
+			case 4:
+			{
+				cout << "This BMP file uses JPEG compression method\n";
+				break;
+			}
+			case 5:
+			{
+				cout << "This BMP file uses PNG compression method\n";
+				break;
+			}
+			default: 
+			{
+				cout << "This file damaged or it's not a BMP image\n";
+				break;
+			}
 		}
 	}
 }
