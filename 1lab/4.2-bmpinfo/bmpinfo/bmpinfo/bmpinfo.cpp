@@ -70,15 +70,11 @@ void WriteInfoAboutBmpFile(const BmpFileHeader &fileHeader, const BmpInfoHeader 
 				cout << "This file uses 256 colors\n";
 				break;
 			}
-<<<<<<< HEAD
 			default:
 			{
 				cout << "This file damaged or it's not a BMP image\n";
 				break;
 			}
-
-=======
->>>>>>> 7ed75ae597af848351892d341dd6aad28ee23bce
 		}
 	}
 
@@ -106,14 +102,11 @@ void WriteInfoAboutBmpFile(const BmpFileHeader &fileHeader, const BmpInfoHeader 
 				cout << "This BMP file uses PNG compression method\n";
 				break;
 			}
-<<<<<<< HEAD
 			default: 
 			{
 				cout << "This file damaged or it's not a BMP image\n";
 				break;
 			}
-=======
->>>>>>> 7ed75ae597af848351892d341dd6aad28ee23bce
 		}
 	}
 }
