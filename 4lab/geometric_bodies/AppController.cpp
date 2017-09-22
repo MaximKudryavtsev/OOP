@@ -17,7 +17,6 @@ CAppController::CAppController(std::vector<std::shared_ptr<CBody>> &bodies, std:
         { "Cone", std::bind(&CAppController::CreateCone, this, std::placeholders::_1) },
         { "Cylinder", std::bind(&CAppController::CreateCylinder, this, std::placeholders::_1) },
         { "Compound", std::bind(&CAppController::CreateCompound, this, std::placeholders::_1) }
-		//{ "Info", std::bind(&CAppController::PrintCurrentInfo, this, std::placeholders::_1) }
     })
 {
 }

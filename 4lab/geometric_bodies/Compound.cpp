@@ -54,3 +54,8 @@ double CCompound::GetVolume() const
 
     return totalVolume;
 }
+
+size_t CCompound::NumberOfFigures() const
+{
+	return m_elements.size();
+}

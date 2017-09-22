@@ -7,9 +7,10 @@ class CCompound final : public CBody
 public:
     CCompound();
 
-    bool AddChildBody(const std::shared_ptr<CBody> &body);
+    bool AddChildBody(std::shared_ptr<CBody> const &body);
     double GetVolume() const override;
     double GetMass() const override;
+	size_t NumberOfFigures() const;
 
 protected:
     void AppendProperties(std::ostream &strm) const override;

@@ -2,10 +2,16 @@
 
 #define _USE_MATH_DEFINES
 #include "../Compound.h"
+#include "../Sphere.h"
+#include "../Parallelepiped.h"
+#include "../Cone.h"
+#include "../Cylinder.h"
+
 #include <math.h>
 
 struct Compound_
 {
+	
     const double expectedDensity = 0;
     const double expectedVolume = 0;
     const CCompound compound;
