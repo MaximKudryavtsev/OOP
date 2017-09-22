@@ -26,12 +26,14 @@ double GetMaxElement(vector<double> & numbers)
 
 void ProcessVector(std::vector<double> & numbers)
 {
+	double maxElement = GetMaxElement(numbers);
+	double minElement = GetMinElement(numbers);
 	if (GetMinElement(numbers) == 0)
 	{
 		cout << "can't devide on zero \n";
 	}
 	 else if (numbers.size() != 0)
 	{
-		boost::transform(numbers, numbers.begin(), (arg1 * GetMaxElement(numbers) / GetMinElement(numbers)));
+		 boost::transform(numbers, numbers.begin(), [maxElement, minElement](double number) {return (number * maxElement / minElement); });
 	}
 }
