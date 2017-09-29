@@ -134,7 +134,10 @@ BOOST_AUTO_TEST_SUITE(CMyStack_)
 		{
 			BOOST_CHECK(stack.IsEmpty());
 		}
-
+		BOOST_AUTO_TEST_CASE(size_of_empty_stack)
+		{
+			BOOST_CHECK_EQUAL(stack.GetSize(), 0);
+		}
 		BOOST_AUTO_TEST_CASE(should_be_constructed_from_other_stack)
 		{
 			stack.Push("abc");
